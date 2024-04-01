@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Category {% endblock title %}
+
+{% block content %}
+
+<!--<div class="container-fluid p-5 mt-3">-->
+<!--    <div class="row">-->
+
+<!--        <div class="col-sm-3">-->
+<!--            <div class="list-group">-->
+<!--                {% for val in title %}-->
+<!--                <a href="#" class="list-group-item list-group-item-action " aria-current="true">{{val.title}}</a>-->
+<!--                {% endfor %}-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash;all products&ndash;&gt;-->
+<!--        <div id="product" class="col-sm-9 mx-auto ">-->
+<!--            <div class="row mx-auto">-->
+<!--                {% for products in product %}-->
+<!--                <a href="" >-->
+<!--                <div class="card mx-auto mb-3 shadow" style="width: 18rem;">-->
+<!--                    <img class="card-img-top" src="{{products.product_image.url}}" alt="Card image cap">-->
+<!--                    <div class="card-body">-->
+<!--                        <hr>-->
+<!--                        <a href=""style="text-decoration:none; color:black;text-align:left;">{{products.description}}</a>-->
+<!--                        <div class="fw-bold text-danger">BDT.{{products.discounted_price}}/- -->
+<!--                            <smalll class=" fw-light text-decoration-line-through">{{products.selling_price}}</smalll>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--                </a>-->
+<!--                {% endfor %}-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="container-fluid mt-3">
+    <div class="row">
+        <!--filter-->
+       <div class="col-sm-2">
+            <div class="list-group">
+                <a href="{%url 'category'%}" class="list-group-item list-group-item-action bg-success text-white">All Products</a>
+                {% for category in categories %}
+                <a href="{%url 'category'%}?category={{category.id}}"
+                   class="list-group-item list-group-item-action " aria-current="true">{{category.name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <!--all products-->
+        <div id="product" class="col-lg-9 mx-auto ">
+            <div class="row mx-auto">
+
+                {% for product in products %}
+                <div class="card mx-auto mb-3 shadow" style="width: 18rem;">
+                    <a href="{% url 'product-detail' product.id %}" style="text-decoration:none; color:black">
+                    <img class="card-img-top" src="{{product.product_image.url}}" alt="Card image cap">
+                    <div class="card-body">
+                        <hr>
+                        <p class="card-title">{{product.description}}</p>
+                        <div class="fw-bold text-danger">BDT.{{product.discounted_price}}/-
+                            <smalll class=" fw-light text-decoration-line-through">{{product.selling_price}}</smalll>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

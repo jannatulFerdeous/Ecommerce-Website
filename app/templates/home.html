@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} home {% endblock title %}
+
+{%block banner %}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{%static 'app/images/banner/b2.jpg'%}" class="d-block w-100" alt="banner image">
+        </div>
+        <div class="carousel-item ">
+            <img src="{%static 'app/images/banner/b1.jpg'%}" class="d-block w-100" alt="banner image">
+        </div>
+        <div class="carousel-item ">
+            <img src="{%static 'app/images/banner/b3.jpg'%}" class="d-block w-100" alt="banner image">
+        </div>
+        <div class="carousel-item ">
+            <img src="{%static 'app/images/banner/b4.jpg'%}" class="d-block w-100" alt="banner image">
+        </div>
+    </div>
+</div>
+{% endblock banner %}
+<!----------------------------------------------------------featured Category---------------------------------------------------->
+{% block category %}
+<style>
+.cat-items-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -5px;
+
+
+
+.cat-item-inner a {
+    text-decoration: none !important;
+}
+
+
+
+
+
+
+
+
+</style>
+
+<div class="container p-5">
+    <div class="p-4">
+        <h4 class="text-center ">Featured Category </h4>
+        <h6 class="text-center ">Get Your Desired Product from Featured Category!</h6>
+    </div>
+    <div class="bg-light  mx-auto">
+        <div class=" cat-items-wrap  col-lg-6 p-5 m-auto  ">
+            <div class=" p-4 m-auto mb-3 justify-content-space-between shadow bg-white ">
+                <a href="{%url 'category' %}" class="cat-item-inner">
+                <span class="">
+                    <img src="{%static 'app/images/icon/p1.png'%}" alt="Clothing"
+                         width="48" height="48">
+                </span>
+                    <P>Clothing</P>
+                </a>
+            </div>
+            <!--            <div class="  p-4 m-auto mb-3 justify-content-space-between shadow bg-white">-->
+            <!--                <a href="\" class="cat-item-inner">-->
+            <!--                <span class="">-->
+            <!--                    <img src="{%static 'app/images/icon/p2.png'%}" alt="Drone"-->
+            <!--                         width="48" height="48">-->
+            <!--                </span>-->
+            <!--                    <P>Electronic</P>-->
+            <!--                </a>-->
+            <!--            </div>-->
+
+            <div class=" p-4 m-auto mb-3 justify-content-space-between shadow bg-white ">
+                <a href="" class="cat-item-inner">
+                <span class="">
+                    <img src="{%static 'app/images/icon/p3.png'%}" alt="Shoe"
+                         width="48" height="48">
+                </span>
+                    <P>Shoes</P>
+                </a>
+            </div>
+
+            <!--            <div class=" p-4 m-auto mb-3 justify-content-space-between shadow bg-white">-->
+            <!--                <a href="\" class="cat-item-inner">-->
+            <!--                <span class="">-->
+            <!--                    <img src="{%static 'app/images/icon/p4.png'%}" alt="Drone"-->
+            <!--                         width="48" height="48">-->
+            <!--                </span>-->
+            <!--                    <P>Jewellery</P>-->
+            <!--                </a>-->
+            <!--            </div>-->
+        </div>
+
+    </div>
+</div>
+{% endblock category %}
+
+<!-----------------------------------------------------------------PRODUCTS---------------------------------------------------------------->
+<!--{%block content %}-->
+
+<!--<section>-->
+<!--    <div class="container-fluid p-5 mt-3">-->
+<!--        <div class="row">-->
+<!--            <div class="p-4">-->
+<!--                <h4 class="text-center ">Featured Product </h4>-->
+<!--                <h6 class="text-center ">Get Your Desired Product!</h6>-->
+<!--            </div>-->
+<!--            &lt;!&ndash;all products&ndash;&gt;-->
+<!--            <div id="product" class="col-lg-9 mx-auto">-->
+<!--                <div class="row mx-auto">-->
+<!--                    {% for product in products %}-->
+<!--                    <div class="card mx-auto mb-3 shadow" style="width: 18rem;">-->
+<!--                        <a href="{% url 'product-detail' product.id %}" style="text-decoration:none; color:black">-->
+<!--                            <img class="card-img-top" src="{{product.product_image.url}}" alt="Card image cap">-->
+<!--                            <div class="card-body">-->
+<!--                                <hr>-->
+<!--                                <p class="card-title">{{product.description}}</p>-->
+<!--                                <div class="fw-bold text-danger">BDT.{{product.discounted_price}}/- -->
+<!--                                    <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    {% endfor %}-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</section>-->
+<!--{% endblock content %}-->
+<!--                <div class="card mx-auto mb-3 shadow" style="width: 18rem;">-->
+<!--                    <img class="card-img-top" src="{%static 'app/images/product/men4.jpg'%}" alt="Card image cap">-->
+<!--                    <div class="card-body">-->
+<!--                        <hr>-->
+<!--                        <a href="#" style="text-decoration:none; color:black"> Keeping in mind the fiery spirit of the youth along with vibrant designs, Jack &-->
+<!--                            Jones is a clothing brand targeted towards the fashion-forward generation. Browse through-->
+<!--                            Tata CLiQ to get your hands on Jack & Jones jackets and shirts.</a>-->
+<!--                        <p class="card-text"><b>BDT 94,000.00</b></p>-->
+
+<!--                    </div>-->
+<!--                </div>-->
